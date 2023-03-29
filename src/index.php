@@ -28,6 +28,7 @@ function customError($errno, $errstr, $errfile, $errline)
     }
     error_log('[' . date("F j, Y, g:i a e O") . ']' . " " . $errstr . "\n", 3, "./error.log"); //set the error in log
 }
+
 set_error_handler("customError");
 $value = 1;
 echo "value=" . $value . "<br>";
@@ -68,7 +69,7 @@ if (isset($_GET['input'])) {
 if (file_exists("test.txt")) {
     trigger_error("File Exist", E_USER_NOTICE);
 } else {
-    trigger_error("File NotExist", E_USER_ERROR);
+    trigger_error("File Not Exist", E_USER_ERROR);
 }
 ?>
 <hr>
@@ -85,6 +86,7 @@ if (file_exists("test.txt")) {
 <h1>Task 8 Files</h1>
 <?php
 echo ($test);
+//custom error handle is define in line no 13
 ?>
 <hr>
 <!-- task 9 -->
